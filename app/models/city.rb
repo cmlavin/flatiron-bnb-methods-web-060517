@@ -46,6 +46,7 @@ class City < ActiveRecord::Base
     self.all.each do |city|
       num_reservations = 0
       city.listings.each do |listing|
+        #listing.reservations.size.inject(0) {|num_res, listing| num_res + listing}
         num_reservations += listing.reservations.size
       end
       if num_reservations > highest_reservations

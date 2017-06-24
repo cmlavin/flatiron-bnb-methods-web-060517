@@ -16,11 +16,8 @@ class Listing < ActiveRecord::Base
   before_destroy :remove_host
 
   def average_review_rating
-
     ratings = self.reviews.map {|review| review.rating}
-
     ratings.inject(0.0) { |sum, rating| sum + rating } / ratings.size
-
   end
 
   def make_host
